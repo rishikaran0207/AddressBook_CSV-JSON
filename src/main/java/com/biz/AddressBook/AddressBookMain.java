@@ -87,6 +87,10 @@ public class AddressBookMain {
                     view_by_state_or_city_sorted();
                 }
                 break;
+                case 8: {
+                    File_read_and_write();
+                }
+                break;
 
             }
 
@@ -94,7 +98,13 @@ public class AddressBookMain {
             ans = scan.next().charAt(0);
         } while (ans == 'y');
     }
+    private static void File_read_and_write() {
+        AddressBookFile.create_file();
+        String input = contactList.toString();
+        AddressBookFile.add_details_to_file(input);
+        AddressBookFile.read_details_to_file();
 
+    }
     private static void view_by_state_or_city_sorted() {
         System.out.println("\nBy which you what to search city or state or zip..");
         String type = scan.next();
